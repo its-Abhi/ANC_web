@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>QuietSphere - AI-Powered Room-Wide Noise Cancellation</title>
+    <!-- Tailwind CSS styles are injected here -->
+    <style>
+      /* Theme configuration */
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 20 14.3% 4.1%;
+        --muted: 60 4.8% 95.9%;
+        --muted-foreground: 25 5.3% 44.7%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 20 14.3% 4.1%;
+        --card: 0 0% 100%;
+        --card-foreground: 20 14.3% 4.1%;
+        --border: 20 5.9% 90%;
+        --input: 20 5.9% 90%;
+        --primary: 208 79% 28%;
+        --primary-foreground: 211 33% 98%;
+        --secondary: 60 4.8% 95.9%;
+        --secondary-foreground: 24 9.8% 10%;
+        --accent: 60 4.8% 95.9%;
+        --accent-foreground: 24 9.8% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 60 9.1% 97.8%;
+        --ring: 20 14.3% 4.1%;
+        --radius: 0.5rem;
+      }
+      .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --primary: 208 79% 28%;
+        --primary-foreground: 211 33% 98%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --ring: 240 4.9% 83.9%;
+        --radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Navbar -->
+      <header class="sticky top-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+          <a href="/" class="flex items-center space-x-2">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-[#3A7CA5] flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- VolumeX icon -->
+                <path d="M23 9L17 15M17 9L23 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11.95 7.05L8 10.5H4V13.5H8L11.95 16.95C12.2815 17.2815 12.7784 17.2428 13.0719 16.9493C13.3654 16.6558 13.4041 16.1589 13.0726 15.8274L10.5 13L13.0726 10.1726C13.4041 9.84109 13.3654 9.3442 13.0719 9.05071C12.7784 8.75722 12.2815 8.71855 11.95 9.05L11.95 7.05Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="text-xl font-bold text-primary">QuietSphere</span>
+          </a>
+          
+          <nav class="hidden md:flex space-x-8">
+            <a href="#features" class="text-sm font-medium hover:text-primary transition">Features</a>
+            <a href="#how-it-works" class="text-sm font-medium hover:text-primary transition">How It Works</a>
+            <a href="#use-cases" class="text-sm font-medium hover:text-primary transition">Use Cases</a>
+            <a href="#pricing" class="text-sm font-medium hover:text-primary transition">Pricing</a>
+            <a href="#faq" class="text-sm font-medium hover:text-primary transition">FAQ</a>
+          </nav>
+          
+          <div class="flex items-center gap-4">
+            <a href="#waitlist" class="hidden md:block px-5 py-2 rounded-md bg-primary text-white text-sm font-medium hover:bg-opacity-90 transition">
+              Join Waitlist
+            </a>
+            <button class="md:hidden">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Menu icon -->
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden bg-[#EBF2FA] py-12 md:py-20">
+          <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div class="order-2 md:order-1">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight text-primary mb-6">
+                  AI-Powered Room-Wide Active Noise Cancellation
+                </h1>
+                <p class="text-lg text-gray-700 mb-8">
+                  Transform any space into a tranquil environment with our revolutionary technology that adapts to your surroundings.
+                </p>
+                
+                <div class="mb-8 flex flex-col sm:flex-row gap-4">
+                  <a href="#waitlist" class="px-6 py-3 rounded-md bg-primary text-white text-center font-medium hover:bg-opacity-90 transition">
+                    Join the Waitlist
+                  </a>
+                  <a href="#how-it-works" class="px-6 py-3 rounded-md border border-primary text-primary text-center font-medium hover:bg-primary hover:text-white transition">
+                    Learn More
+                  </a>
+                </div>
+                
+                <div class="flex items-center text-sm text-gray-500">
+                  <div class="flex -space-x-2 mr-3">
+                    <!-- User avatars -->
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-300 flex items-center justify-center overflow-hidden">
+                      <!-- User icon -->
+                    </div>
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-300 flex items-center justify-center overflow-hidden">
+                      <!-- User icon -->
+                    </div>
+                    <div class="w-8 h-8 rounded-full border-2 border-white bg-gray-300 flex items-center justify-center overflow-hidden">
+                      <!-- User icon -->
+                    </div>
+                  </div>
+                  <span>Join our waitlist today!</span>
+                </div>
+              </div>
+              
+              <div class="order-1 md:order-2">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=800&h=500&fit=crop" 
+                    class="w-full" 
+                    alt="QuietSphere Device" 
+                  />
+                  <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white">
+                    <p class="text-sm font-semibold">QuietSphere | Coming Soon</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="absolute -bottom-20 left-0 right-0 h-40 opacity-30">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none" class="h-full w-full">
+              <path fill="#0F4C81" fill-opacity="0.3" d="M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,202.7C672,203,768,149,864,128C960,107,1056,117,1152,144C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+          </div>
+        </section>
+        <!-- Features Section -->
+        <!-- Features content here -->
+        <!-- How It Works Section -->
+        <!-- How It Works content here -->
+        <!-- Use Cases Section -->
+        <!-- Use Cases content here -->
+        <!-- Comparison Section -->
+        <!-- Comparison content here -->
+        <!-- Pricing Section -->
+        <!-- Pricing content here -->
+        <!-- Waitlist Form Section -->
+        <section id="waitlist" class="py-16 bg-primary text-white">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+              <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Join the Waitlist</h2>
+                <p class="text-xl opacity-80 max-w-2xl mx-auto">
+                  Be among the first to experience QuietSphere and get exclusive early-bird pricing
+                </p>
+              </div>
+              
+              <div class="bg-white text-gray-800 rounded-xl p-8 shadow-lg">
+                <form class="space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- First Name input -->
+                    <div>
+                      <label class="block text-sm font-medium mb-1">First Name</label>
+                      <input type="text" placeholder="Your first name" class="w-full rounded-md border border-gray-300 p-2" />
+                    </div>
+                    
+                    <!-- Last Name input -->
+                    <div>
+                      <label class="block text-sm font-medium mb-1">Last Name</label>
+                      <input type="text" placeholder="Your last name" class="w-full rounded-md border border-gray-300 p-2" />
+                    </div>
+                  </div>
+                  
+                  <!-- Email input -->
+                  <div>
+                    <label class="block text-sm font-medium mb-1">Email Address</label>
+                    <input type="email" placeholder="Your email address" class="w-full rounded-md border border-gray-300 p-2" />
+                  </div>
+                  
+                  <!-- Primary Use Case dropdown -->
+                  <div>
+                    <label class="block text-sm font-medium mb-1">Primary Use Case</label>
+                    <div class="relative">
+                      <select class="w-full rounded-md border border-gray-300 p-2 pr-8">
+                        <option value="home">Home / Living Space</option>
+                        <option value="office">Office / Workspace</option>
+                        <option value="sleep">Sleep Improvement</option>
+                        <option value="medical">Medical Facility</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <!-- Interested Model radio buttons -->
+                  <div>
+                    <label class="block text-sm font-medium mb-3">Interested Model</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-[#EBF2FA] transition">
+                        <input type="radio" name="model" value="basic" class="mr-2" />
+                        <label class="cursor-pointer font-normal">Basic ($299)</label>
+                      </div>
+                      <div class="flex items-center p-3 border border-primary bg-[#EBF2FA] rounded-md cursor-pointer hover:bg-[#EBF2FA] transition">
+                        <input type="radio" name="model" value="pro" checked class="mr-2" />
+                        <label class="cursor-pointer font-normal">Pro ($499)</label>
+                      </div>
+                      <div class="flex items-center p-3 border border-gray-300 rounded-md cursor-pointer hover:bg-[#EBF2FA] transition">
+                        <input type="radio" name="model" value="enterprise" class="mr-2" />
+                        <label class="cursor-pointer font-normal">Enterprise</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Updates checkbox -->
+                  <div class="flex flex-row items-start space-x-3 space-y-0">
+                    <input type="checkbox" class="mt-1" />
+                    <div class="space-y-1 leading-none">
+                      <label class="text-sm text-gray-600 font-normal">
+                        I'd like to receive updates about QuietSphere product launches, features, and promotions. You can unsubscribe at any time.
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <!-- Submit button -->
+                  <button 
+                    type="submit" 
+                    class="w-full px-6 py-3 bg-primary text-white font-medium rounded-md"
+                  >
+                    <span>Join the Waitlist</span>
+                    <svg class="w-4 h-4 ml-2 inline" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- FAQ Section -->
+        <!-- FAQ content here -->
+        <!-- Contact Section -->
+        <!-- Contact content here -->
+      </main>
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+          <!-- Footer content here -->
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
